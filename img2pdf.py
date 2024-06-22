@@ -6,6 +6,7 @@ def makePDF(path):
     path : dir path
     '''
     # for check the path
+    print(path)
     if not os.path.exists(path):
         print("Input the right path")
         return 1
@@ -13,11 +14,14 @@ def makePDF(path):
 
     dirname = os.path.dirname(path)
     print(dirname)
-    filename = dirname + ".pdf"
-    
+    filename = os.path.join(path, "output.pdf")
+    print(filename)
+    # imgs = [i for i in os.listdir(path) if i.endswith(".png")]
+    imgs = [i for i in os.listdir(path)]
+    print("imgs : ", imgs)
     # make PDF file and write    
     with open(filename, "wb") as file:
-        file.write(img2pdf.convert([i for i in os.listdir(path) if i.endswith(".png")]))
+        file.write(img2pdf.convert(imgs))
         
         
         
