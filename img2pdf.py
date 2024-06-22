@@ -5,6 +5,7 @@ def makePDF(path):
     '''
     path : dir path
     '''
+    
     # for check the path
     print(path)
     if not os.path.exists(path):
@@ -21,8 +22,8 @@ def makePDF(path):
     print("imgs : ", imgs)
     
     # make PDF file and write    
-    with open(filename, "wb") as file:
-        file.write(img2pdf.convert(imgs))
+    with open(filename, "wb") as f:
+        f.write(img2pdf.convert(imgs))
         
         
         
