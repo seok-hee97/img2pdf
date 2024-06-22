@@ -16,9 +16,10 @@ def makePDF(path):
     print(dirname)
     filename = os.path.join(path, "output.pdf")
     print(filename)
-    # imgs = [i for i in os.listdir(path) if i.endswith(".png")]
-    imgs = [i for i in os.listdir(path)]
+    
+    imgs = [i for i in os.listdir(path) if i.endswith(".png")]
     print("imgs : ", imgs)
+    
     # make PDF file and write    
     with open(filename, "wb") as file:
         file.write(img2pdf.convert(imgs))
