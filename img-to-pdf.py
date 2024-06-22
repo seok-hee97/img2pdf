@@ -18,16 +18,14 @@ def makePDF(path):
     filename = os.path.join(path, "output.pdf")
     print(filename)
     
-    imgs = [i for i in os.listdir(path) if i.endswith(".png")]
+    # imgs = [i for i in os.listdir(path) if i.endswith(".png")]
+    imgs = [os.path.join(path, i) for i in os.listdir(path) if i.endswith(".png")]
     # print("imgs : ", imgs)
     
     # make PDF file and write    
-    # with open(filename, "wb") as f:
-    #     f.write(img2pdf.convert(imgs))
-        
-        # 이미지 데이터를 바이트 형태로 읽기
     with open(filename, "wb") as f:
-        f.write(img2pdf.convert([open(img, 'rb').read() for img in imgs]))
+        f.write(img2pdf.convert(imgs))
+        
         
         
         
